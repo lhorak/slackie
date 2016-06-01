@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import channels from './ChannelsReducer'
+import channels from './Channels'
 import { Map } from 'immutable'
 
 

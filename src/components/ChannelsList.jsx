@@ -3,20 +3,26 @@ import React, {
     PropTypes,
 } from 'react';
 
+import Radium from 'radium'
+
 import ChannelListItem from './ChannelListItem'
 
 
 const ChannelsList = (props) => {
-    const channels = props.channels.map((channel) => {
-        return <ChannelListItem name={channel.get('name')}/>
-    });
-
-
     return (
-        <ul className="channelsList">
-            {channels}
+        <ul style={styles.base}>
+            {props.channels.map((channel, i) => {
+                return <ChannelListItem key={i} name={channel.get('name')}/>
+            })}
         </ul>
     );
+};
+
+const styles = {
+    base: {
+        listStyle: 'none',
+        padding  : 0
+    }
 }
 
-export default ChannelsList;
+export default Radium(ChannelsList);

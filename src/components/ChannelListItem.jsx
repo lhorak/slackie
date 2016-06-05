@@ -2,18 +2,16 @@ import React, {
     Component,
     PropTypes,
 } from 'react';
+import Radium from 'radium'
+import { Link } from 'react-router'
 
-class ChannelListItem extends Component {
-    render() {
-        return (
-            <li className="channelListItem" key={this.props.name}>
-                {this.props.name}
-            </li>
-        );
-    }
-}
+require('../styles/sidebarLink.scss');
 
-ChannelListItem.propTypes    = {};
-ChannelListItem.defaultProps = {};
+
+const ChannelListItem = props => (
+    <li className="sidebarLink channel" key={props.name}>
+        <Link to={`/channel/${props.name}`}>{props.name}</Link>
+    </li>
+);
 
 export default ChannelListItem;

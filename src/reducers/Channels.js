@@ -1,24 +1,17 @@
 import { List, Map } from 'immutable';
 import { CREATE_CHANNEL, DELETE_CHANNEL } from '../ActionTypes'
+import { DEFAULT_CHANNELS } from '../defaults'
 
-const defaultChannels = Map(
-    {
-        'random'  : Map({messages: List()}),
-        'general' : Map({messages: List()}),
-        'projectx': Map({messages: List()})
-    }
-)
-
-function channels(state = defaultChannels, action) {
+const channels = (state = DEFAULT_CHANNELS, action) => {
     switch (action.type) {
         case CREATE_CHANNEL:
-            const channel = Map({messages: List()});
-            return state.set(action.name, channel);
+            const channel = Map({name: action.name, messages: List()});
+            return state.push(channel);
         case DELETE_CHANNEL:
             return state.delete(action.name);
         default:
             return state;
     }
-}
+};
 
 export default channels;

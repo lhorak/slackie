@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 
-export const UserListItem = (props) => {
+const UserListItem = (props) => {
 
     return (
-        <li className="userListItem">{props.name !== undefined ? props.name : 'undefined user'}</li>
+        <li className="userListItem">
+            {props.name !== undefined ? props.name : 'undefined user'}
+        </li>
     );
 }
+
+
+export default UserListItem;

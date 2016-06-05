@@ -1,16 +1,22 @@
 import React from 'react'
-
 import UserListItem from './UserListItem'
 
 
-export const UsersList = (props) => {
-    const users = props.users.map((user) => {
-        return <UserListItem name={user.nick}/>
-    });
-
+const UsersList = props => {
     return (
-        <ul className="usersList">
-            {users.length > 0 ? users : <div>Žádné PM</div>}
-        </ul>
+        <div>
+            <div className="sidebar__title">
+                PRIVATE MESSAGES
+            </div>
+            <ul className="usersList">
+                {props.users.map((user, i) => {
+                    return <UserListItem name={user.get('nick')} key={i}/>
+                })}
+            </ul>
+        </div>
+
     );
-}
+};
+
+
+export default UsersList;

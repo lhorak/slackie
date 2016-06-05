@@ -1,14 +1,45 @@
-import React from 'react'
-import Radium from 'radium'
-import FontAwesome from 'react-fontawesome'
+import React, {
+    Component,
+    PropTypes,
+} from 'react';
+import Radium from 'radium';
+import FontAwesome from 'react-fontawesome';
+import FullscreenModal from './FullscreenModal';
 
-const AddButton = props => {
-    return (
-        <button style={styles.base} onClick={props.action}>
-            <FontAwesome name="plus"/>
-        </button>
-    );
+
+class AddButton extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isModalOpened: false
+        }
+    };
+
+    openModal = () => {
+        console.log('setting isModalOpened to true');
+        this.setState({isModalOpened: true});
+        console.log('state of modal is', this.state.isModalOpened);
+    };
+
+    closeModal = () => {
+        console.log('setting isModalOpened to false');
+        this.setState({isModalOpened: false});
+        console.log('state of modal is', this.state.isModalOpened);
+    };
+
+    render() {
+        return (
+            <button style={styles.base} onClick={this.openModal}>
+                <FontAwesome name="plus"/>
+                {this.state.isModalOpened && <FullscreenModal onClose={this.closeModal}/>}
+            </button>
+        );
+    };
 }
+
+AddButton.propTypes    = {};
+AddButton.defaultProps = {};
 
 
 const iconSize = .6;

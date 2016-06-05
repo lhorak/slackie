@@ -1,0 +1,36 @@
+.sidebarLink {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, .7);
+  padding: 5px 10px;
+  margin: 0 20px 0 0;
+  transition: all 100ms ease-in;
+  border-radius: 0 3px 3px 0;
+
+  a {
+    color: rgba(255, 255, 255, .7);
+    text-decoration: none;
+    transition: all 100ms ease-in;
+  }
+
+  &:hover {
+    background-color: darken(#0E4250, 5%);
+    a {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  &.channel {
+    &::before {
+      content: '#';
+      color: rgba(255, 255, 255, .4);
+      padding-right: .2rem;
+      transition: all 100ms ease-in;
+    }
+
+    &:hover {
+      &::before {
+        color: rgba(255, 255, 255, .8);
+      }
+    }
+  }
+}

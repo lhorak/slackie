@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import channels from './Channels'
-import { Map } from 'immutable'
+import channels from './channels'
+import users from './users'
+import loggedUser from './loggedUser'
+import privateMessages from './privateMessages'
 
 
-const slackieApp = combineReducers({channels});
+const reducers = combineReducers({loggedUser, channels, privateMessages, users});
 
-export default slackieApp;
+export default reducers;

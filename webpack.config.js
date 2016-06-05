@@ -5,6 +5,8 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
     filename: 'index.html',
     inject  : 'body'
 });
+var autoprefixer            = require('autoprefixer');
+
 
 module.exports = {
     entry  : [
@@ -25,8 +27,35 @@ module.exports = {
     },
     module : {
         loaders: [
-            {test: /\.jsx$|\.es6$|\.js$/, loaders: ['react-hot', 'babel-loader'], exclude: /node_modules/},
-            {test: /\.scss$|\.css$/, loader: 'style-loader!style!css!sass', exclude: /node_modules/}
+            {
+                test   : /\.jsx$|\.es6$|\.js$/, loaders: ['react-hot', 'babel-loader'],
+                exclude: /node_modules/
+            },
+            {
+                test   : /\.css$/,
+                exclude: /node_modules/,
+                loaders: ['style', 'css']
+            },
+            {
+                test   : /\.scss$/,
+                exclude: /node_modules/,
+                loaders: ['style', 'css', 'postcss', 'sass']
+            },
+            {
+                test   : /\.woff$/,
+                exclude: /node_modules/,
+                loader : "url-loader?limit=10000&mimetype=application/font-woff&name=[path][name].[ext]"
+            },
+            {
+                test   : /\.woff2$/,
+                exclude: /node_modules/,
+                loader : "url-loader?limit=10000&mimetype=application/font-woff2&name=[path][name].[ext]"
+            },
+            {
+                test   : /\.(eot|ttf|svg|gif|png)$/,
+                exclude: /node_modules/,
+                loader : "file-loader"
+            }
         ]
     },
     plugins: [
@@ -34,6 +63,11 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
         HTMLWebpackPluginConfig
     ],
-    devtool: "eval-source-map"
+    devtool: "eval-source-map",
+    postcss: function () {
+        return [autoprefixer({
+            browsers: ['last 3 versions']
+        })];
+    }
 };
 

@@ -2,32 +2,36 @@ import React, {
     Component,
     PropTypes,
 } from 'react';
+import Radium from 'radium'
 
+import Sidebar from './Sidebar'
 
-import { Sidebar } from './Sidebar'
-import { TopBar } from './TopBar'
-import ChannelsList from './ChannelsList'
-import UsersList from './UsersList'
+require('../styles/main.scss');
 
-class App extends Component {
+class SlackieApp extends Component {
     render() {
-        console.log(this.props.channels);
-
-        const users = [{nick: 'bobby'}, {nick: 'sally'}];
-
         return (
-            <div className="container">
-                <Sidebar>
-                    <ChannelsList channels={this.props.channels}/>
-                    <UsersList users={users}/>
-                </Sidebar>
-                <TopBar />
+            <div style={styles.base}>
+                <Sidebar channels={this.props.channels} users={this.props.users}/>
+                {this.props.children}
             </div>
         );
     }
 }
 
-App.propTypes    = {};
-App.defaultProps = {};
 
-export default App;
+SlackieApp.propTypes    = {};
+SlackieApp.defaultProps = {};
+
+const styles = {
+    base: {
+        backgroundColor: '#F0FCFF',
+        position       : 'absolute',
+        top            : 0,
+        right          : 0,
+        bottom         : 0,
+        left           : 0
+    }
+};
+
+export default Radium(SlackieApp);

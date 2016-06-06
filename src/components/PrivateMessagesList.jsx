@@ -8,10 +8,10 @@ import Radium from 'radium'
 import ChannelListItem from './ChannelListItem'
 
 
-const ChannelsList = (props) => {
+const PrivateMessagesList = props => {
     return (
         <ul style={styles.base}>
-            {props.channels.map((channel, i) => {
+            {props.privateMessages.map((channel, i) => {
                 return <ChannelListItem key={i} name={channel.get('name')}/>
             })}
         </ul>
@@ -25,4 +25,4 @@ const styles = {
     }
 }
 
-export default Radium(ChannelsList);
+export default Radium(PrivateMessagesList);

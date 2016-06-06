@@ -1,10 +1,25 @@
 import React from 'react'
+import Radium from 'radium'
 
-export const TopBar = (props) => {
+const TopBar = props => {
     'use strict';
     return (
-        <div className="topBar">
+        <div style={styles}>
             TopBar
         </div>
     );
+};
+
+const styles = {
+    position       : 'fixed',
+    top            : 0,
+    right          : 0,
+    left           : 0,
+    height         : '60px',
+    boxShadow      : '0 1px 0 0 #E4E4E4',
+    marginLeft     : '220px',
+    backgroundColor: '#fff',
+    padding        : '10px 20px'
 }
+
+export default Radium(TopBar);

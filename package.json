@@ -4,8 +4,9 @@
   "description": "Simple frontend slack clone",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p",
-    "start": "webpack-dev-server --history-api-fallback --port 8080",
+    "build": "webpack",
+    "prod": "webpack -p",
+    "start": "webpack-dev-server --history-api-fallback --port 8080 --watch-poll",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch"
   },
@@ -21,6 +22,7 @@
     "moment": "^2.13.0",
     "radium": "^0.17.1",
     "react": "^15.1.0",
+    "react-addons-css-transition-group": "^15.1.0",
     "react-addons-pure-render-mixin": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "react-dom": "^15.1.0",

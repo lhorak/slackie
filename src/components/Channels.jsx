@@ -6,13 +6,17 @@ import Radium from 'radium'
 
 import AddButton from './AddButton'
 import ChannelsList from './ChannelsList'
+import CreateNewChannel from './CreateNewChannel'
 
 class Channels extends Component {
     render() {
         return (
             <div style={styles.base}>
                 <div style={styles.title}>
-                    CHANNELS({this.props.channels.count()}) <AddButton action={this.props.onAddButtonClick}/>
+                    CHANNELS({this.props.channels.count()})
+                    <AddButton>
+                        <CreateNewChannel />
+                    </AddButton>
                 </div>
                 <ChannelsList channels={this.props.channels}/>
             </div>

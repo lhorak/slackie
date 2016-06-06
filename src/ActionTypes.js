@@ -5,8 +5,9 @@ export const MODIFY_MESSAGE = 'MODIFY_MESSAGE';
 export const DELETE_MESSAGE = 'DELETE_MESSAGE';
 export const CREATE_CHANNEL = 'CREATE_CHANNEL';
 export const DELETE_CHANNEL = 'DELETE_CHANNEL';
+export const OPEN_CHANNEL = 'OPEN_CHANNEL';
 
-
+// User status constants
 export const SET_USER_STATUS = 'SET_USER_STATUS';
 
 

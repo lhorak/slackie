@@ -3,8 +3,13 @@ import React, {
     PropTypes,
 } from 'react';
 import Radium from 'radium';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 import FontAwesome from 'react-fontawesome';
 import FullscreenModal from './FullscreenModal';
+
+//styles
+require('../styles/transitions/fadeIn.scss');
 
 
 class AddButton extends Component {
@@ -17,28 +22,42 @@ class AddButton extends Component {
     };
 
     openModal = () => {
-        console.log('setting isModalOpened to true');
+        this.props.onOpenModal && this.props.onOpenModal();
         this.setState({isModalOpened: true});
-        console.log('state of modal is', this.state.isModalOpened);
     };
 
     closeModal = () => {
-        console.log('setting isModalOpened to false');
+        this.props.onCloseModal && this.props.onCloseModal();
         this.setState({isModalOpened: false});
-        console.log('state of modal is', this.state.isModalOpened);
     };
 
     render() {
         return (
             <button style={styles.base} onClick={this.openModal}>
                 <FontAwesome name="plus"/>
-                {this.state.isModalOpened && <FullscreenModal onClose={this.closeModal}/>}
+                <ReactCSSTransitionGroup
+                    transitionName="fadeIn"
+                    transitionAppear={true}
+                    transitionAppearTimeout={100}
+                    transitionEnterTimeout={100}
+                    transitionLeaveTimeout={100}
+                >
+                    {
+                        this.state.isModalOpened &&
+                        <FullscreenModal onClose={this.closeModal}>
+                            {this.props.children}
+                        </FullscreenModal>
+                    }
+                </ReactCSSTransitionGroup>
             </button>
         );
     };
 }
 
-AddButton.propTypes    = {};
+AddButton.propTypes    = {
+    onOpenModal: PropTypes.func,
+    onCloseModal: PropTypes.func
+};
 AddButton.defaultProps = {};
 
 

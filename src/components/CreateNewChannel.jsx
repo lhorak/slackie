@@ -8,7 +8,8 @@ import React, {
     PropTypes
 } from 'react'
 
-import ChannelNameInput from './ChannelNameInput'
+// import ChannelNameInput from './ChannelNameInput'
+import Input from './Input'
 
 
 class CreateNewChannel extends Component {
@@ -16,7 +17,8 @@ class CreateNewChannel extends Component {
     render() {
         return (
             <div>
-                <ChannelNameInput />
+                <Input label="Name" description="Names should be lowercase with no spaces"/>
+                <Input label="Purpose" isOptional={true} description="What's this channel about?"/>
             </div>
         );
     }

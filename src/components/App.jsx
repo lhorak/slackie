@@ -5,6 +5,8 @@ import React, {
 import Radium from 'radium'
 
 import Sidebar from './Sidebar'
+import Content from './Content'
+import TopBar from './TopBar'
 
 require('../styles/main.scss');
 
@@ -13,7 +15,10 @@ class SlackieApp extends Component {
         return (
             <div style={styles.base}>
                 <Sidebar channels={this.props.channels} users={this.props.users}/>
-                {this.props.children}
+                <TopBar />
+                <Content>
+                    {this.props.children}
+                </Content>
             </div>
         );
     }

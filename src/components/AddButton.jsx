@@ -6,6 +6,7 @@ import Radium from 'radium';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import FontAwesome from 'react-fontawesome';
+import MaterialIcon from './MaterialIcon';
 import FullscreenModal from './FullscreenModal';
 
 //styles
@@ -34,7 +35,8 @@ class AddButton extends Component {
     render() {
         return (
             <button style={styles.base} onClick={this.openModal}>
-                <FontAwesome name="plus"/>
+                <MaterialIcon name="add_circle_outline" size="1.2rem"/>
+
                 <ReactCSSTransitionGroup
                     transitionName="fadeIn"
                     transitionAppear={true}
@@ -66,22 +68,16 @@ const size     = iconSize * 1.8;
 
 const styles = {
     base: {
-        display     : 'inline-block',
-        background  : 'transparent',
-        outline     : 'none',
-        border      : 'none',
-        float       : 'right',
-        borderRadius: '50%',
-        border      : '2px solid rgba(255,255,255,.7)',
-        color       : 'rgba(255,255,255,.7)',
-        fontSize    : `${iconSize}rem`,
-        width       : `${size}rem`,
-        height      : `${size}rem`,
-        textAlign   : 'center',
-        padding     : 0,
+        display   : 'inline-block',
+        background: 'transparent',
+        outline   : 'none',
+        border    : 'none',
+        float     : 'right',
+        lineHeight: '1rem',
+        color     : 'rgba(255,255,255,.7)',
+        padding   : 0,
 
         ':hover': {
-            border: '2px solid rgba(255,255,255,1)',
             color : 'rgba(255,255,255,1)'
         }
     }

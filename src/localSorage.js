@@ -1,11 +1,13 @@
+import {fromJS} from 'immutable'
+
 export const loadState = () => {
     try {
-        const serializedState = loaclStorage.getItem('slackieState');
+        const serializedState = localStorage.getItem('slackieState');
 
         if (serializedState === null) {
             return undefined;
         }
-        return JSON.parse(serializedState);
+        return fromJS(JSON.parse(serializedState)).toObject();
     } catch (err) {
         return undefined;
     }

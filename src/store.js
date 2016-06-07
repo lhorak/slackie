@@ -5,6 +5,7 @@ import throttle from 'lodash/throttle'
 
 export default function configureStore() {
     const persistedState = loadState();
+    console.log(persistedState);
     const store          = createStore(reducers, persistedState, window.devToolsExtension && window.devToolsExtension());
 
     store.subscribe(throttle(() => {

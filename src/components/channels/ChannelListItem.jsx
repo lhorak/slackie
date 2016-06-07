@@ -5,7 +5,7 @@ import React, {
 import Radium from 'radium'
 import { Link } from 'react-router'
 
-require('../styles/sidebarLink.scss');
+require('../../styles/sidebarLink.scss');
 
 
 const ChannelListItem = props => (

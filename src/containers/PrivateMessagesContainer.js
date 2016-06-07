@@ -5,7 +5,7 @@ import React, {
 import { connect } from 'react-redux'
 
 import createChannel from '../actions/createChannel'
-import PrivateMessages from '../components/PrivateMessages'
+import PrivateMessages from '../components/direct_messages/PrivateMessages'
 
 const mapDispatchToProps = dispatch => {
     return {

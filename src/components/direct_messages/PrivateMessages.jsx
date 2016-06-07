@@ -1,14 +1,14 @@
 import React from 'react'
 import Radium from 'radium'
 
-import AddButton from './AddButton'
+import AddButton from '../AddButton'
 import PrivateMessagesList from './PrivateMessagesList'
 
 const PrivateMessages = props => {
     return (
         <div style={styles.base}>
             <div style={styles.title}>
-                PRIVATE MESSAGES{props.privateMessages.count() > 0 ? `(${props.privateMessages.count()})` : ''}
+                DIRECT MESSAGES{props.privateMessages.count() > 0 ? `(${props.privateMessages.count()})` : ''}
                 <AddButton action={props.onAddButtonClick && props.onAddButtonClick}/>
             </div>
             <PrivateMessagesList privateMessages={props.privateMessages}/>

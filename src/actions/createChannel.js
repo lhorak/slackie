@@ -1,7 +1,13 @@
 import { CREATE_CHANNEL } from '../ActionTypes';
 
-const createChannel = name => ({
-    type: CREATE_CHANNEL, name: name
-});
+const createChannel = (name, purpose) => {
+    
+
+    return {
+        type: CREATE_CHANNEL,
+        name: name,
+        purpose: purpose
+    };
+}
 
 export default createChannel;

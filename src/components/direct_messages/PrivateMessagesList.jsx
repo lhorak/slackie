@@ -5,7 +5,7 @@ import React, {
 
 import Radium from 'radium'
 
-import ChannelListItem from './ChannelListItem'
+import ChannelListItem from '../channels/ChannelListItem'
 
 
 const PrivateMessagesList = props => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import ChannelDetail from '../components/ChannelDetail'
+import ChannelDetail from '../components/channels/ChannelDetail'
 
 const mapStateToProps = (store) => {
     return {

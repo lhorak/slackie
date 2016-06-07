@@ -4,7 +4,7 @@ import React, {
 } from 'react';
 import Radium from 'radium'
 
-import AddButton from './AddButton'
+import AddButton from '../AddButton'
 import ChannelsList from './ChannelsList'
 import CreateNewChannel from './CreateNewChannel'
 
@@ -14,9 +14,7 @@ class Channels extends Component {
             <div style={styles.base}>
                 <div style={styles.title}>
                     CHANNELS({this.props.channels.count()})
-                    <AddButton>
                         <CreateNewChannel />
-                    </AddButton>
                 </div>
                 <ChannelsList channels={this.props.channels}/>
             </div>

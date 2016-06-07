@@ -5,7 +5,7 @@ import React, {
 import { connect } from 'react-redux'
 
 import createChannel from '../actions/createChannel'
-import Channels from '../components/Channels'
+import Channels from '../components/channels/Channels'
 
 const mapDispatchToProps = dispatch => {
     return {

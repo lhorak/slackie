@@ -11,7 +11,7 @@ const TopBar = props => {
 };
 
 const styles = {
-    position       : 'fixed',
+    position       : 'absolute',
     top            : 0,
     right          : 0,
     left           : 0,

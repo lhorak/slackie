@@ -4,6 +4,8 @@ import React, {
 } from 'react';
 
 import Radium from 'radium'
+import sortBy from 'lodash/sortBy'
+import map from 'lodash/map'
 
 import ChannelListItem from './ChannelListItem'
 
@@ -11,8 +13,8 @@ import ChannelListItem from './ChannelListItem'
 const ChannelsList = (props) => {
     return (
         <ul style={styles.base}>
-            {props.channels.map((channel, i) => {
-                return <ChannelListItem key={i} name={channel.get('name')}/>
+            {map(sortBy(props.channels.toJS(), 'name'), (channel, i) => {
+                return <ChannelListItem key={i} name={channel.name}/>
             })}
         </ul>
     );

@@ -1,5 +1,5 @@
 import { List, Map } from 'immutable'
-import { STATUS_OFFLINE } from './userStatus'
+import { STATUS_OFFLINE, STATUS_ONLINE } from './userStatus'
 
 export const DEFAULT_CHANNELS = List.of(
     Map({name: 'general', messages: List()}),
@@ -9,7 +9,7 @@ export const DEFAULT_CHANNELS = List.of(
 );
 
 export const DEFAULT_LOGGED_USER = Map({
-    name    : null,
-    username: null,
-    status  : STATUS_OFFLINE
+    name    : 'John Doe',
+    username: 'johndoe',
+    status  : STATUS_ONLINE
 });

@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import Radium from 'radium'
 
-import ChannelsContainer from '../containers/ChannelsContainer'
-import UsersContainer from '../containers/UsersContainer'
-import PrivateMessagesContainer from '../containers/PrivateMessagesContainer'
+import ChannelsContainer from '../../containers/ChannelsContainer'
+import UsersContainer from '../../containers/UsersContainer'
+import PrivateMessagesContainer from '../../containers/PrivateMessagesContainer'
 
-import createChannel from '../actions/createChannel'
+import createChannel from '../../actions/createChannel'
 
 const Sidebar = (props, {store}) => {
 

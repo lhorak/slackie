@@ -5,10 +5,10 @@ import React, {
 import Radium from 'radium'
 
 import Sidebar from './Sidebar'
-import Content from './Content'
+import Content from '../Content'
 import TopBar from './TopBar'
 
-require('../styles/main.scss');
+require('../../styles/main.scss');
 
 class SlackieApp extends Component {
     render() {

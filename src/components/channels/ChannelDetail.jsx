@@ -3,10 +3,15 @@ import React, {
     PropTypes,
 } from 'react';
 
+import Radium from 'radium';
+import MessageComposer from '../MessageComposer';
+
 class ChannelDetail extends Component {
     render() {
         return (
-            <div>CHANNEL DETAIL</div>
+            <div style={styles.base}>
+                <MessageComposer onSend={()=>{}} />
+            </div>
         );
     }
 }
@@ -14,4 +19,15 @@ class ChannelDetail extends Component {
 ChannelDetail.propTypes    = {};
 ChannelDetail.defaultProps = {};
 
-export default ChannelDetail;
+const styles = {
+    base: {
+        display: 'flex',
+        minWidth: '100%',
+        minHeight: '100%',
+        background: '#fff',
+        justifyContent: 'flex-end',
+        flexDirection: 'column'
+    }
+}
+
+export default Radium(ChannelDetail);

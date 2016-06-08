@@ -1,12 +1,12 @@
 import { List, Map } from 'immutable'
 import { STATUS_OFFLINE, STATUS_ONLINE } from './userStatus'
+import v4 from 'node-uuid'
 
-export const DEFAULT_CHANNELS = List.of(
-    Map({name: 'general', messages: List()}),
-    Map({name: 'random', messages: List()}),
-    Map({name: 'gooddata', messages: List()}),
-    Map({name: 'admins', messages: List()})
-);
+export const DEFAULT_CHANNELS = Map({
+    'general' : Map({name: 'general', id: v4()}),
+    'random'  : Map({name: 'random', id: v4()}),
+    'godddata': Map({name: 'gooddata', id: v4()})
+});
 
 export const DEFAULT_LOGGED_USER = Map({
     name    : 'John Doe',

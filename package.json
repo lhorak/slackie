@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack",
     "prod": "webpack -p",
-    "start": "webpack-dev-server --history-api-fallback --port 8080 --watch-poll",
+    "start": "webpack-dev-server --history-api-fallback --port 8080",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch"
   },

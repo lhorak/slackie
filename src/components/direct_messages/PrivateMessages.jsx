@@ -8,10 +8,10 @@ const PrivateMessages = props => {
     return (
         <div style={styles.base}>
             <div style={styles.title}>
-                DIRECT MESSAGES{props.privateMessages.count() > 0 ? `(${props.privateMessages.count()})` : ''}
+                DIRECT MESSAGES{props.directMessages.count() > 0 ? `(${props.directMessages.count()})` : ''}
                 <AddButton action={props.onAddButtonClick && props.onAddButtonClick}/>
             </div>
-            <PrivateMessagesList privateMessages={props.privateMessages}/>
+            <PrivateMessagesList directMessages={props.directMessages}/>
         </div>
     )
 }

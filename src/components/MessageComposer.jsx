@@ -14,21 +14,20 @@ import TextareaAutosize from 'react-textarea-autosize';
 class MessageComposer extends Component {
 
     handleEnter = (e) => {
-        if (e.keyCode === 13 && !e.ctrllKey)
-        {
-            // prevent default behavior
+        if (e.keyCode === 13 && (!e.shiftKey && !e.ctrlKey && !e.altKey)) {
             e.preventDefault();
+            this.props.onSend();
         }
-    }
+    };
 
     render() {
         return (
             <div style={styles.base}>
                <TextareaAutosize
                    style={styles.textarea}
-                   value={this.props.currentValue}
-                onChange={this.props.onChange}
-               onKeyDown={this.handleEnter}/>
+                   value={this.props.message}
+                   onChange={this.props.onChange}
+                   onKeyDown={this.handleEnter}/>
             </div>
         );
     }

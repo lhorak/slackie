@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { Map, List, fromJS } from 'immutable';
 import { createStore } from 'redux'
 import { DEFAULT_CHANNELS } from '../src/defaults'
-import channels from '../src/reducers/channels'
+import channels from '../src/reducers/channels/channels'
 import createChannel from '../src/actions/createChannel'
 
 describe('channels', () => {

@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = store => {
     return {
-        privateMessages: store.privateMessages
+        directMessages: store.directMessages
     }
 };
 

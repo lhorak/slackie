@@ -40,8 +40,6 @@ class FullscreenModal extends Component {
                         {this.props.children}
                     </Scrollbars>
                 </div>
-
-
             </div>
         );
     }

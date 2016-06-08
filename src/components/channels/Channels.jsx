@@ -10,13 +10,15 @@ import CreateNewChannel from './CreateNewChannel'
 
 class Channels extends Component {
     render() {
+        console.log(this.props.params);
+        
         return (
             <div style={styles.base}>
                 <div style={styles.title}>
-                    CHANNELS({this.props.channels.count()})
+                    CHANNELS {this.props.channels.count() > 0 && <span>({this.props.channels.count()})</span>}
                         <CreateNewChannel />
                 </div>
-                <ChannelsList channels={this.props.channels}/>
+                <ChannelsList channels={this.props.channels} activeChannel={this.props.openedChatId}/>
             </div>
         );
     }

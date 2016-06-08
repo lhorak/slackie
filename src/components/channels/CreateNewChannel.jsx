@@ -18,6 +18,7 @@ import Button from '../Button'
 import NewChannelForm from './NewChannelForm'
 import {connect} from 'react-redux';
 import createChannel from '../../actions/createChannel'
+import { withRouter } from 'react-router';
 
 
 class CreateNewChannel extends Component {
@@ -38,7 +39,7 @@ class CreateNewChannel extends Component {
     createNewChannel = (name, purpose) => {
         this.props.createChannel(name, purpose);
         this.toggleModal();
-        browserHistory.push(`/channel/${name}`);
+        this.props.router.push(`/channel/${name}`);
     };
 
 
@@ -87,4 +88,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Radium(CreateNewChannel))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Radium(CreateNewChannel)));

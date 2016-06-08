@@ -3,24 +3,20 @@ import React, {
     PropTypes,
 } from 'react';
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 
 import createChannel from '../actions/createChannel'
 import Channels from '../components/channels/Channels'
 
-const mapDispatchToProps = dispatch => {
-    return {
-        onAddButtonClick: name => {
-            dispatch(createChannel('georgie'));
-        }
-    }
-};
-
 const mapStateToProps = store => {
     return {
-        channels: store.channels
+        channels    : store.channels.opened.map(id => {
+            return store.channels.all.get(id);
+        }),
+        openedChatId: store.openedChat
     }
 };
 
-const ChannelsContainer = connect(mapStateToProps, mapDispatchToProps)(Channels);
+const ChannelsContainer = withRouter(connect(mapStateToProps)(Channels));
 
 export default ChannelsContainer

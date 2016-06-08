@@ -8,10 +8,19 @@ import { Link } from 'react-router'
 require('../../styles/sidebarLink.scss');
 
 
-const ChannelListItem = props => (
-    <li className="sidebarLink channel" key={props.name}>
-        <Link to={`/channel/${props.name}`}>{props.name}</Link>
-    </li>
-);
+class ChannelListItem extends Component {
+
+
+    render() {
+        return (
+            <li className={this.props.active ? 'sidebarLink channel active' : 'sidebarLink channel'}
+                key={this.props.id}>
+                <Link to={`/channel/${this.props.name}`}>{this.props.name}</Link>
+            </li>
+        );
+    }
+
+}
+;
 
 export default ChannelListItem;

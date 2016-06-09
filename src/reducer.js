@@ -3,11 +3,10 @@ import channels, * as fromChannels from './reducers/channels/channels'
 import users from './reducers/users'
 import loggedUser from './reducers/loggedUser'
 import directMessages from './reducers/directMessages'
-import messages from './reducers/messages'
 import openedChat from './reducers/openedChat'
 
 
-const reducer = combineReducers({loggedUser, channels, directMessages, users, messages, openedChat});
+const reducer = combineReducers({loggedUser, channels, directMessages, users, openedChat});
 
 export default reducer;
 

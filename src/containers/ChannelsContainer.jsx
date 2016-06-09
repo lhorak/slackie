@@ -10,9 +10,7 @@ import Channels from '../components/channels/Channels'
 
 const mapStateToProps = store => {
     return {
-        channels    : store.channels.opened.map(id => {
-            return store.channels.all.get(id);
-        }),
+        channels    : store.channels,
         openedChatId: store.openedChat
     }
 };

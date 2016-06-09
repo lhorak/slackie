@@ -5,6 +5,8 @@ import React, {
 
 import Radium from 'radium';
 import MessageComposer from '../MessageComposer';
+import MessagesList from '../messages/MessagesList';
+import withRouter from 'react-router/lib/withRouter';
 
 class ChannelDetail extends Component {
     constructor(props, context) {
@@ -28,16 +30,19 @@ class ChannelDetail extends Component {
 
     sendMessage = () => {
         this.props.sendMessage(this.props.loggedUserId, this.props.openedChannel.get('id'), this.state.message);
-        console.log(this.state.message);
         this.setState({message: ''});
     };
 
 
     render() {
-        console.log(this.props);
+        console.log('messages', this.props.messages);
+
         return (
             <div style={styles.base}>
-                <span>{this.props.router}</span>
+                <div>
+                    <h1>SEZNAM ZPRAV</h1>
+                    <MessagesList messages={this.props.messages}/>
+                </div>
                 <MessageComposer
                     message={this.state.message}
                     onChange={this.onMessageInput}
@@ -59,6 +64,6 @@ const styles = {
         justifyContent: 'flex-end',
         flexDirection: 'column'
     }
-}
+};
 
-export default Radium(ChannelDetail);
+export default withRouter(Radium(ChannelDetail));

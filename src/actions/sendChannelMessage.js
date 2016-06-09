@@ -1,10 +1,10 @@
 import { SEND_CHANNEL_MESSAGE } from '../ActionTypes';
 
-const sendChannelMessage = (userId, message, channelId) => ({
-    type    : SEND_CHANNEL_MESSAGE,
-    id      : channelId,
-    message : message,
-    targetId: channelId
+const sendChannelMessage = (userId, channelName, message) => ({
+    type     : SEND_CHANNEL_MESSAGE,
+    userId   : userId,
+    message  : message,
+    channelId: channelName
 });
 
 export default sendChannelMessage;

@@ -4,13 +4,15 @@ import React, {
 
 import Radium from 'radium'
 import Scrollbars from 'react-custom-scrollbars'
+import Message from './Message'
 
 const MessagesList = ({messages}) => {
     return (
         <div style={styles.base}>
             <Scrollbars>
-                {messages.map((message) => {
-
+                {messages.map((message, key) => {
+                    <Message key={message.key} id={message.timestamp} timestamp={message.timestamp}
+                             text={message.message} username={message.username}/>
                 })}
             </Scrollbars>
         </div>

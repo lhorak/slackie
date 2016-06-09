@@ -16,7 +16,7 @@ const styles = {
     right          : 0,
     left           : 0,
     height         : '60px',
-    boxShadow      : '0 1px 0 0 #E4E4E4',
+    borderBottom   : '1px solid #E4E4E4',
     marginLeft     : '220px',
     backgroundColor: '#fff',
     padding        : '10px 20px'

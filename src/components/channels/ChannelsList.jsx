@@ -12,12 +12,12 @@ import { withRouter } from 'react-router'
 
 
 const ChannelsList = (props, context) => {
-    console.log(props.channels.toJS());
+    console.log(props.messages);
     
     return (
         <ul style={styles.base}>
             {map(sortBy(props.channels.toJS(), 'name'), (channel) => {
-                return <ChannelListItem active={channel && (channel.id === props.activeChannel)} key={channel.id}
+                return <ChannelListItem active={channel && (channel.name === props.activeChannel)} key={channel.name}
                                         name={channel.name}/>
             })}
         </ul>

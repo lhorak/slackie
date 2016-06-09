@@ -6,8 +6,7 @@ const openedChat = (state = null, action) => {
     switch (action.type) {
         case OPEN_CHAT_WINDOW:
         case OPEN_CHANNEL:
-        case CREATE_CHANNEL:
-            return action.id;
+            return {id: action.id, chatType: action.chatType};
         default:
             return state;
     }

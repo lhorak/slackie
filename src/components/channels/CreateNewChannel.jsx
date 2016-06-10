@@ -3,22 +3,14 @@
  */
 
 // NPM imports
-import React, {
-    Component,
-    PropTypes
-} from 'react'
-import { Router, browserHistory } from 'react-router'
-import {Map} from 'immutable';
-import Radium from 'radium';
-
-import AddButton from '../AddButton'
+import React, {Component, PropTypes} from "react";
+import {withRouter} from "react-router";
+import Radium from "radium";
+import AddButton from "../AddButton";
+import NewChannelForm from "./NewChannelForm";
+import {connect} from "react-redux";
+import createChannel from "../../actions/createChannel";
 // import ChannelNameInput from './ChannelNameInput'
-import Input from '../Input'
-import Button from '../Button'
-import NewChannelForm from './NewChannelForm'
-import {connect} from 'react-redux';
-import createChannel from '../../actions/createChannel'
-import { withRouter } from 'react-router';
 
 
 class CreateNewChannel extends Component {

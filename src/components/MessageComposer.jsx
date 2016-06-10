@@ -19,7 +19,6 @@ class MessageComposer extends Component {
             this.props.onSend();
         }
     };
-
     render() {
         return (
             <div style={styles.base}>
@@ -64,6 +63,6 @@ const styles = {
             boxShadow: '#555459 0px 0px 0px 2px'
         }
     }
-}
+};
 
 export default Radium(MessageComposer);

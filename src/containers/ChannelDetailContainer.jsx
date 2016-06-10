@@ -6,7 +6,7 @@ import React, {
 import { connect } from 'react-redux'
 import sendChannelMessage from '../actions/sendChannelMessage';
 import openChannel from '../actions/openChannel'
-import browserHistory from 'react-router/lib/browserHistory';
+import MessagesList from '../components/messages/MessagesList';
 
 
 import Radium from 'radium';
@@ -43,7 +43,10 @@ class ChannelDetail extends Component {
         console.log(this.props);
         return (
             <div style={styles.base}>
-                <span>{this.props.router}</span>
+                <div>
+                    <h1>SEZNAM ZPRAV</h1>
+                    <MessagesList messages={this.props.channel.get('messages').toJS()}/>
+                </div>
                 <MessageComposer
                     message={this.state.message}
                     onChange={this.onMessageInput}
@@ -69,7 +72,7 @@ const styles = {
 
 const mapStateToProps = (store) => {
     return {
-        channels     : store.channels,
+        channel: store.channels.get(store.openedChat.id),
         openedChannel: store.openedChat.id,
         loggedUserId : store.loggedUser.get('username'),
         messages     : store.channels.get(store.openedChat.id).get('messages')

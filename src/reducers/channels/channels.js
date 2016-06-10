@@ -33,6 +33,6 @@ export const Channel = new Record({
     name       : undefined,
     purpose    : '',
     dateCreated: new Date(),
-    messages   : new Map(),
+    messages: new List(),
     members    : new Set()
 })

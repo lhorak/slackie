@@ -6,7 +6,6 @@ import React, {
 import Radium from 'radium';
 import MessageComposer from '../MessageComposer';
 import MessagesList from '../messages/MessagesList';
-import withRouter from 'react-router/lib/withRouter';
 
 class ChannelDetail extends Component {
     constructor(props, context) {
@@ -41,8 +40,9 @@ class ChannelDetail extends Component {
             <div style={styles.base}>
                 <div>
                     <h1>SEZNAM ZPRAV</h1>
-                    <MessagesList messages={this.props.messages}/>
+                    <MessagesList messages={this.props.channel.get('messages')}/>
                 </div>
+                <span>Why u no working</span>
                 <MessageComposer
                     message={this.state.message}
                     onChange={this.onMessageInput}
@@ -66,4 +66,4 @@ const styles = {
     }
 };
 
-export default withRouter(Radium(ChannelDetail));
+export default Radium(ChannelDetail);

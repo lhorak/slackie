@@ -9,7 +9,7 @@ import moment from 'moment'
 const Message = props => {
     return (
         <div>
-            <span>{props.username} {moment.format(props.timestamp)}</span>
+            <span>{props.username} {moment(props.timestamp).format('D. MMM, h:mma')}</span>
             <span>{props.text}</span>
         </div>
     );

@@ -9,17 +9,16 @@ import searchResults from './reducers/searchResults'
 import concat from 'lodash/concat';
 import sortBy from 'lodash/sortBy';
 
-const reducer = combineReducers({loggedUser, channels, directMessages, users, openedChat, searchResults});
+const reducer = combineReducers({
+    loggedUser,
+    channels,
+    directMessages,
+    users,
+    openedChat,
+    searchResults
+});
 
 export default reducer;
-
-export const getChannelMessages = (state, channelId) => {
-    fromChannels.getChannelMessages(state.messages, channelId);
-}
-
-export const getDirectMessages = (state, userId) => {
-    return [];
-}
 
 export const searchMessagesForTerm = (state, term) => {
     const messagesFromChannels = fromChannels.searchMessagesInChannels(state.channels, term);

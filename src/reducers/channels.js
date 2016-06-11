@@ -5,13 +5,20 @@ import MessageRecord from '../records/MessageRecord'
 import ChannelRecord from '../records/ChannelRecord'
 
 import forEach from 'lodash/forEach'
-import filter from 'lodash/filter'
 
+// Default channels when they are not initialized
 const defaultChannels = Map({
     'general': new ChannelRecord({name: 'general', purpose: 'just a general talk'}),
     'random' : new ChannelRecord({name: 'random', purpose: 'get wild here! Send funny pics, videos or whatever..'})
-})
+});
 
+/**
+ * Channels reducer
+ * takes care of all the channels
+ * @param state if state is not provided, default channels (immutable.js Map) is provided
+ * @param action Action
+ * @returns {state} always returns state. When no action is matched, it returns current state
+ */
 const channels = (state = defaultChannels, action) => {
     switch (action.type) {
         case CREATE_CHANNEL:
@@ -41,10 +48,12 @@ const channels = (state = defaultChannels, action) => {
 
 export default channels;
 
-export const getChannelMessages = (state, channelId) => {
-    return state.get(channelId).get('messages');
-};
-
+/**
+ * Function for searching messages inside all channels
+ * @param state
+ * @param searchTerm term for which the search is initiated
+ * @returns {Array} Array of search results
+ */
 export const searchMessagesInChannels = (state, searchTerm) => {
     let results     = [];
     let regexSearch = new RegExp(`.*${searchTerm}.*`, 'i');

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import SlackieApp from '../components/app/App'
+import SlackieApp from './App'
 
 const mapStateToProps = (store) => {
     return {

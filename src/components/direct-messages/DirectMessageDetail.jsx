@@ -5,12 +5,12 @@ import React, {
 import Radium from 'radium';
 import { connect } from 'react-redux'
 
-import MessagesList from '../components/messages/MessagesList';
-import MessageComposer from '../components/MessageComposer';
+import MessagesList from '../messages/MessagesList';
+import MessageComposer from '../MessageComposer';
 
 // Redux actions import
-import sendDirectMessage from '../actions/sendDirectMessage'
-import openDirectMessage from '../actions/openDirectMessage'
+import sendDirectMessage from '../../actions/sendDirectMessage'
+import openDirectMessage from '../../actions/openDirectMessage'
 
 class DirectMessageDetail extends Component {
     onMessageInput = e => {

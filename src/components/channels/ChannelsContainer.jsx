@@ -7,8 +7,8 @@ import Radium from 'radium'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
-import ChannelsList from '../components/channels/ChannelsList'
-import CreateNewChannel from '../components/channels/CreateNewChannel'
+import ChannelsList from './ChannelsList'
+import CreateNewChannel from './CreateNewChannel'
 
 class ChannelsContainer extends Component {
     render() {

@@ -5,10 +5,10 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 
 // Custom imports
 import configureStore       from '../../store'
-import AppContainer         from '../../containers/AppContainer'
-import ChannelDetailContainer from '../../containers/ChannelDetailContainer'
-import DirectMessageDetail from '../../containers/DirectMessageDetail'
-import WelcomeContainer from '../../containers/WelcomeContainer'
+import AppContainer         from './AppContainer'
+import ChannelDetailContainer from '../channels/ChannelDetailContainer'
+import DirectMessageDetail from '../direct_messages/DirectMessageDetail'
+import WelcomeContainer from './WelcomeContainer'
 import openChannel from '../../actions/openChannel'
 import openDirectMessage from '../../actions/openDirectMessage'
 

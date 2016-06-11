@@ -1,11 +1,13 @@
-import { List, Map, Record, fromJS } from 'immutable';
-import v4 from 'node-uuid';
-import dummyUsers from '../../dummy_data/users'
-import { SEND_DIRECT_MESSAGE } from '../ActionTypes'
-import MessageRecord from '../records/MessageRecord'
+import { List } from 'immutable';
 
 import { searchMessages } from '../components/app/Root'
 
+/**
+ * searchResults reducer
+ * @param state
+ * @param action
+ * @returns {*}
+ */
 function searchResults(state = List(), action) {
     switch (action.type) {
         case 'SEARCH_TERM':
@@ -18,13 +20,3 @@ function searchResults(state = List(), action) {
 }
 
 export default searchResults;
-
-//
-// export const UserRecord = new Record({
-//     id: undefined,
-//     username: undefined,
-//     fullname: undefined,
-//     avatar: undefined,
-//     status: 'offline',
-//     messages: List()
-// });

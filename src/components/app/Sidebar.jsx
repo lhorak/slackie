@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import Radium from 'radium'
 import Scrollbars from 'react-custom-scrollbars'
 
-import ChannelsContainer from '../../containers/ChannelsContainer'
-import DirectMessagesContainer from '../../containers/DirectMessagesContainer'
+import ChannelsContainer from '../channels/ChannelsContainer'
+import DirectMessagesContainer from '../direct_messages/DirectMessagesContainer'
 
 const Sidebar = (props) => {
     return (

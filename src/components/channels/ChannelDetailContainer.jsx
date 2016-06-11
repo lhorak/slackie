@@ -4,13 +4,13 @@ import React, {
 } from 'react';
 
 import { connect } from 'react-redux'
-import sendChannelMessage from '../actions/sendChannelMessage';
-import openChannel from '../actions/openChannel'
-import MessagesList from '../components/messages/MessagesList';
+import sendChannelMessage from '../../actions/sendChannelMessage';
+import openChannel from '../../actions/openChannel'
+import MessagesList from '../messages/MessagesList';
 
 
 import Radium from 'radium';
-import MessageComposer from '../components/MessageComposer';
+import MessageComposer from '../MessageComposer';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 class ChannelDetail extends Component {

@@ -1,12 +1,22 @@
-import { List, Map, Record, fromJS } from 'immutable';
+import { List, Map } from 'immutable';
 import v4 from 'node-uuid';
 import dummyUsers from '../../dummy_data/users'
 import { SEND_DIRECT_MESSAGE } from '../ActionTypes'
 import MessageRecord from '../records/MessageRecord'
 import forEach from 'lodash/forEach'
 
+/**
+ * dummy users list
+ * @type {*|Map<K, V>|Map<string, V>}
+ */
 const usersList = Map(dummyUsers.map(user => [user.id, Map(user)]));
 
+/**
+ * users reducer
+ * @param state
+ * @param action
+ * @returns {*}
+ */
 function users(state = usersList, action) {
     switch (action.type) {
         case SEND_DIRECT_MESSAGE:
@@ -24,6 +34,14 @@ function users(state = usersList, action) {
 
 export default users;
 
+/**
+ * searchDirectMessages
+ * function that searches all the users and their messages for specified
+ * string. It uses regexp to match exact phrase anywhere in the text.
+ * @param state
+ * @param searchTerm
+ * @returns {Array}
+ */
 export const searchDirectMessages = (state, searchTerm) => {
     let results = [];
 

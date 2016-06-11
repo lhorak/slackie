@@ -8,7 +8,7 @@ import React, {
     PropTypes,
 } from 'react';
 import {connect} from 'react-redux'
-import UsersList from '../components/users/UsersList';
+import UsersList from '../users/UsersList';
 
 class WelcomeContainer extends Component {
     render() {

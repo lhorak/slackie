@@ -1,11 +1,15 @@
 import React from 'react'
 import Radium from 'radium'
+import { connect } from 'react-redux'
+import includes from 'lodash/includes'
+
+import closeDirectMessage from '../../actions/closeDirectMessage'
 
 import DMList from './DMList'
 import OpenNewDirectMessage from './OpenNewDirectMessage'
 import { withRouter } from 'react-router'
 
-const DirectMessages = props => {
+const DirectMessagesContainer = props => {
 
     const closeDM = (id) => {
         if (props.openedChat.id === id) {
@@ -28,6 +32,26 @@ const DirectMessages = props => {
     )
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        onCloseDMClick: id => {
+            dispatch(closeDirectMessage(id));
+        }
+    }
+};
+
+const mapStateToProps = store => {
+    return {
+        directMessages: store.users.filter(
+            user => includes(store.directMessages.toJS(), user.get('id'))
+        ).sortBy(
+            user => user.get('username')
+        ),
+        openedChat    : store.openedChat,
+        usersCount    : store.users.count()
+    }
+};
+
 const styles = {
     base : {
         padding: '10px 0'
@@ -38,4 +62,4 @@ const styles = {
 };
 
 
-export default withRouter(Radium(DirectMessages))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Radium(DirectMessagesContainer)));

@@ -6,9 +6,18 @@ import throttle from 'lodash/throttle'
 export default function configureStore() {
     const persistedState = loadState();
     const store          = createStore(reducers, persistedState, window.devToolsExtension && window.devToolsExtension());
+    // const store          = createStore(reducers, persistedState);
 
     store.subscribe(throttle(() => {
-        saveState(store.getState());
+        const currentState = store.getState();
+        saveState(
+            {
+                channels      : currentState.channels,
+                directMessages: currentState.directMessages,
+                users         : currentState.users,
+                loggedUser    : currentState.loggedUser
+            }
+        );
     }, 1000));
 
 

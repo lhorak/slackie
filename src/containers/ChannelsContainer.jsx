@@ -2,19 +2,47 @@ import React, {
     Component,
     PropTypes,
 } from 'react';
+
+import Radium from 'radium'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
-import createChannel from '../actions/createChannel'
-import Channels from '../components/channels/Channels'
+import ChannelsList from '../components/channels/ChannelsList'
+import CreateNewChannel from '../components/channels/CreateNewChannel'
 
-const mapStateToProps = store => {
-    return {
-        channels    : store.channels,
-        openedChatId: store.openedChat
+class ChannelsContainer extends Component {
+    render() {
+        return (
+            <div style={styles.base}>
+                <div style={styles.title}>
+                    CHANNELS {this.props.channels.count() > 0 && <span>({this.props.channels.count()})</span>}
+                    <CreateNewChannel />
+                </div>
+                <ChannelsList channels={this.props.channels} activeChannel={this.props.openedChat}/>
+            </div>
+        );
+    }
+}
+
+ChannelsContainer.propTypes    = {};
+ChannelsContainer.defaultProps = {};
+
+
+const styles = {
+    base : {
+        padding: '10px 0'
+    },
+    title: {
+        padding: '0 10px'
     }
 };
 
-const ChannelsContainer = withRouter(connect(mapStateToProps)(Channels));
+const mapStateToProps = store => {
+    return {
+        channels  : store.channels,
+        openedChat: store.openedChat
+    }
+};
 
-export default ChannelsContainer
+
+export default withRouter(connect(mapStateToProps)(Radium(ChannelsContainer)));

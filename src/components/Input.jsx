@@ -9,9 +9,7 @@ import Radium from 'radium'
 const Input = (props) => {
 
     const handleEnterKey = (event) => {
-        console.log(event.keyCode);
         if (props.onEnterKey && event.keyCode === 13) {
-            console.log('ener has been hit!!');
             event.preventDefault();
             props.onEnterKey();
         }

@@ -33,12 +33,7 @@ class FullscreenModal extends Component {
                 <MaterialIcon style={styles.closeButton} name="close" size="4rem" onClick={this.onCrossClick}/>
 
                 <div style={styles.content}>
-                    <Scrollbars
-                        autoHeight
-                        autoHeightMin={100}
-                        autoHeightMax={1000}>
                         {this.props.children}
-                    </Scrollbars>
                 </div>
             </div>
         );
@@ -51,7 +46,7 @@ FullscreenModal.defaultProps = {};
 
 const styles = {
     base       : {
-        position       : 'absolute',
+        position       : 'fixed',
         top            : 0, right: 0, bottom: 0, left: 0,
         backgroundColor: '#fff',
         zIndex         : 10000,
@@ -64,7 +59,10 @@ const styles = {
     content    : {
         width       : '100%',
         maxWidth    : '650px',
-        marginBottom: '100px'
+        marginBottom: '100px',
+        maxHeight   : '75%',
+        height      : '75%',
+        overflow    : 'hidden'
     },
     closeButton: {
         position: 'absolute',

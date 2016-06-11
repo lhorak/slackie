@@ -16,16 +16,15 @@ class MessageComposer extends Component {
     handleEnter = (e) => {
         if (e.keyCode === 13 && (!e.shiftKey && !e.ctrlKey && !e.altKey)) {
             e.preventDefault();
-            this.props.onSend();
+            this.props.onSend(e.target.value);
+            e.target.value = '';
         }
     };
     render() {
         return (
-            <div style={styles.base}>
+            <div style={[styles.base, this.props.style]}>
                <TextareaAutosize
                    style={styles.textarea}
-                   value={this.props.message}
-                   onChange={this.props.onChange}
                    onKeyDown={this.handleEnter}/>
             </div>
         );

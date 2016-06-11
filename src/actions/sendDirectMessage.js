@@ -1,9 +1,10 @@
 import { SEND_DIRECT_MESSAGE } from '../ActionTypes';
 
-const sendChannelMessage = (userId, message) => ({
-    type   : SEND_DIRECT_MESSAGE,
-    id     : userId,
-    message: message
+const sendDirectMessage = (loggedUserId, userId, message) => ({
+    type        : SEND_DIRECT_MESSAGE,
+    loggedUserId: loggedUserId,
+    userId      : userId,
+    message     : message
 });
 
 export default sendDirectMessage;

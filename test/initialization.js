@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { Map, List, fromJS } from 'immutable';
-import channel from '../src/reducers/channels/channels';
+import channel from '../src/reducers/channels';
 import { createChannel } from '../src/actions/createChannel';
 import { deleteChannel } from '../src/actions/deleteChannel';
 

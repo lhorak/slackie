@@ -7,9 +7,17 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import configureStore       from '../../store'
 import AppContainer         from '../../containers/AppContainer'
 import ChannelDetailContainer from '../../containers/ChannelDetailContainer'
+import DirectMessageDetail from '../../containers/DirectMessageDetail'
 import WelcomeContainer from '../../containers/WelcomeContainer'
 import openChannel from '../../actions/openChannel'
 import openDirectMessage from '../../actions/openDirectMessage'
+
+
+import { searchMessagesForTerm } from '../../reducer'
+
+
+import find from 'lodash/find'
+import matchesProperty from 'lodash/matchesProperty'
 
 // Configure redux store
 const store = configureStore();
@@ -17,7 +25,6 @@ const store = configureStore();
 
 const onChannelEnter = (nextState, replace) => {
     const nextChannelName = nextState.params.channelName;
-    console.log(nextChannelName);
 
     const currentState = store.getState();
 
@@ -30,11 +37,13 @@ const onChannelEnter = (nextState, replace) => {
 };
 
 const onDirectMessageEnter = (nextState, replace) => {
-    const nextDMUsername = nextState.params.channelName;
+    const nextDMUsername = nextState.params.username;
     const currentState   = store.getState();
 
-    if (currentState.users.hasIn(['nick'], nextDMUsername)) {
-        store.dispatch(openDirectMessage(nextDMUsername));
+    const user = find(currentState.users.toJS(), matchesProperty('username', nextDMUsername));
+
+    if (user) {
+        store.dispatch(openDirectMessage(user.id));
     }
     else {
         replace('/');
@@ -46,7 +55,7 @@ const Root = () => (
         <Router history={browserHistory}>
             <Route path="/" component={AppContainer}>
                 <IndexRoute component={WelcomeContainer}/>
-                <Route path="/messages/:userName" component={ChannelDetailContainer} onEnter={onDirectMessageEnter}/>
+                <Route path="/messages/:username" component={DirectMessageDetail} onEnter={onDirectMessageEnter}/>
                 <Route path="/channel/:channelName" component={ChannelDetailContainer} onEnter={onChannelEnter}/>
             </Route>
         </Router>
@@ -54,3 +63,5 @@ const Root = () => (
 );
 
 export default Root
+
+export const searchMessages = (searchTerm) => searchMessagesForTerm(store.getState(), searchTerm);

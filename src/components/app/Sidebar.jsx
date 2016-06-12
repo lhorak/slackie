@@ -3,7 +3,7 @@ import Radium from 'radium'
 import Scrollbars from 'react-custom-scrollbars'
 
 import ChannelsContainer from '../channels/ChannelsContainer'
-import DirectMessagesContainer from '../direct_messages/DirectMessagesContainer'
+import DirectMessagesContainer from '../direct-messages/DirectMessagesContainer'
 
 const Sidebar = (props) => {
     return (

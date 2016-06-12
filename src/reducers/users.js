@@ -9,7 +9,7 @@ import forEach from 'lodash/forEach'
  * dummy users list
  * @type {*|Map<K, V>|Map<string, V>}
  */
-const usersList = Map(dummyUsers.map(user => [user.id, Map(user)]));
+export const usersList = Map(dummyUsers.map(user => [user.id, Map(user)]));
 
 /**
  * users reducer

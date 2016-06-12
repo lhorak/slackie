@@ -5,6 +5,7 @@ import React, {
 
 import MaterialIcon from '../MaterialIcon'
 import SearchResult from './SearchResult'
+import Scrollbars from 'react-custom-scrollbars'
 
 require('../../styles/searchResults.scss');
 
@@ -13,8 +14,8 @@ const SearchResults = props => {
         <div className={`searchResults ${props.opened ? 'active' : ''}`}>
             <div className="searchResults__header">
                 <h1>Search results</h1>
-                <span><MaterialIcon name="close"/></span>
             </div>
+            <Scrollbars>
             <div className="searchResults__results">
                 {props.searchResults && props.searchResults.map((result, key) => {
                     return <SearchResult key={key}
@@ -25,6 +26,7 @@ const SearchResults = props => {
                                          targetName={result.targetName}/>
                 })}
             </div>
+            </Scrollbars>
         </div>
     );
 }

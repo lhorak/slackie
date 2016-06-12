@@ -7,7 +7,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import configureStore       from '../../store'
 import AppContainer         from './AppContainer'
 import ChannelDetailContainer from '../channels/ChannelDetailContainer'
-import DirectMessageDetail from '../direct_messages/DirectMessageDetail'
+import DirectMessageDetail from '../direct-messages/DirectMessageDetail'
 import WelcomeContainer from './WelcomeContainer'
 import openChannel from '../../actions/openChannel'
 import openDirectMessage from '../../actions/openDirectMessage'
@@ -58,6 +58,7 @@ const Root = () => (
                 <Route path="/messages/:username" component={DirectMessageDetail} onEnter={onDirectMessageEnter}/>
                 <Route path="/channel/:channelName" component={ChannelDetailContainer} onEnter={onChannelEnter}/>
             </Route>
+            <Route path="*" component={WelcomeContainer}/>
         </Router>
     </Provider>
 );

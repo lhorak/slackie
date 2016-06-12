@@ -7,7 +7,7 @@ import ChannelRecord from '../records/ChannelRecord'
 import forEach from 'lodash/forEach'
 
 // Default channels when they are not initialized
-const defaultChannels = Map({
+export const defaultChannels = Map({
     'general': new ChannelRecord({name: 'general', purpose: 'just a general talk'}),
     'random' : new ChannelRecord({name: 'random', purpose: 'get wild here! Send funny pics, videos or whatever..'})
 });

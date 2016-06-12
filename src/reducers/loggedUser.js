@@ -6,7 +6,7 @@ import { Map } from 'immutable';
  * for presentational purposes
  * @type {*|Map<K, V>|Map<string, V>}
  */
-const defaultUser = Map({
+export const defaultUser = Map({
     id      : "148896f7-9e80-4f88-9489-533718f4d7f2",
     fullname: "Lukas Horak",
     username: "lhorak",

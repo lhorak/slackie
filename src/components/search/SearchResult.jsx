@@ -2,18 +2,18 @@ import React, {
     Component,
     PropTypes,
 } from 'react';
-
-import moment from 'moment'
-
-import Avatar from '../Avatar'
+import Message from '../messages/Message'
+import Radium from 'radium'
 
 const SearchResult = props => {
     return (
-        <div>
-            <div>{props.targetType === 'channel' ? `#${props.targetName}` : `@${props.targetName}`}</div>
-            <Avatar username={props.user}/>
-            <div>{moment(props.timestamp).format('D.M. H:mm A')}</div>
-
+        <div style={styles.base}>
+            <div
+                style={styles.targetContainer}>{props.targetType === 'channel' ? `#${props.targetName}` : `@${props.targetName}`}</div>
+            <Message id={props.message}
+                     text={props.message}
+                     username={props.user}
+                     timestamp={props.timestamp}/>
         </div>
     );
 }
@@ -25,6 +25,21 @@ SearchResult.propTypes    = {
     targetType: PropTypes.oneOf(['channel', 'directMessage']),
     targetName: PropTypes.string
 };
-SearchResult.defaultProps = {};
 
-export default SearchResult;
+const styles = {
+    base           : {
+        borderBottom: '1px solid #EAEAEA',
+        padding     : '10px 0',
+        margin      : '0 5px'
+    },
+    targetContainer: {
+        width     : '100%',
+        fontSize  : '.9rem',
+        fontWeight: '600',
+        padding   : '5px 15px',
+        color     : 'rgb(14, 66, 80)' +
+        ''
+    }
+}
+
+export default Radium(SearchResult);

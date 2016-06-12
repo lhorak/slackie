@@ -1,13 +1,15 @@
 import { expect } from 'chai';
 import { Map, List, fromJS } from 'immutable';
 import { createStore } from 'redux'
-import loggedUser from '../src/reducers/loggedUser'
+import loggedUser, { defaultUser } from '../src/reducers/loggedUser'
 import { SET_USER_STATUS } from '../src/ActionTypes'
-describe('loggedUser', () => {
-    it('creates default state', () => {
-        const state = loggedUser(undefined, {type: null});
 
-        expect(state).to.equal();
+
+describe('loggedUser reducer', () => {
+    it('creates default state', () => {
+        const store = createStore(loggedUser);
+
+        expect(store.getState()).to.equal(defaultUser);
     });
 
     const store = createStore(loggedUser);

@@ -7,21 +7,44 @@ import React, {PropTypes} from 'react'
 import Radium from 'radium'
 
 const Input = (props) => {
+
+    const handleEnterKey = (event) => {
+        if (props.onEnterKey && event.keyCode === 13) {
+            event.preventDefault();
+            props.onEnterKey();
+        }
+        else {
+            return;
+        }
+    };
+
     return (
         <div style={styles.base}>
             {
                 props.label && <span style={styles.label}>{props.label}{props.isOptional &&
                 <span style={styles.optionalMessage}>(optional)</span>}</span>
             }
-            <input style={styles.input} type="text" value={props.value} onChange={props.onChange}/>
+            <input
+                style={styles.input}
+                type="text"
+                value={props.value}
+                onChange={props.onChange}
+                placeholder={props.placeholder}
+                onKeyDown={handleEnterKey}/>
             {props.description && <span style={styles.description}>{props.description}</span>}
         </div>
     )
 };
 
+
 Input.propTypes = {
-    value: PropTypes.any.isRequired
-}
+    value: PropTypes.any.isRequired,
+    onChange: PropTypes.func.isRequired,
+    label: PropTypes.string,
+    description: PropTypes.string,
+    placeholder: PropTypes.string,
+    onEnterKey: PropTypes.func
+};
 
 const styles = {
     base           : {
@@ -33,26 +56,27 @@ const styles = {
     input          : {
         display     : 'inline-block',
         width       : '100%',
-        border      : '2px solid #E4E4E4',
-        borderRadius: '.2rem',
-        lineHeight  : '2rem',
+        border      : '1px solid #E4E4E4',
+        borderRadius: '.3rem',
+        padding  : '.75rem 1rem',
+        fontSize: '1.1rem',
 
         ':focus': {
             outline: 'none',
-            border : '2px solid #0E4250',
+            border: '1px solid #0E4250',
         }
     },
     label          : {
         display  : 'inline-block',
         width    : '100%',
-        fontSize : '1.3rem',
+        fontSize : '1.1rem',
         textAlign: 'left',
         padding  : '.5rem 0'
     },
     description    : {
         display  : 'inline-block',
         width    : '100%',
-        fontSize : '.8rem',
+        fontSize : '.85rem',
         textAlign: 'left',
         padding  : '.2rem 0',
         color    : '#A8A8A8'
@@ -60,9 +84,9 @@ const styles = {
     optionalMessage: {
         display   : 'inline-block',
         fontSize  : '.9rem',
-        lineHeight: '1.3rem',
+        marginTop: '-0.1rem',
         textAlign : 'left',
-        padding   : '.5rem 0 .5rem .5rem',
+        paddingLeft: '.5rem',
         color     : '#A8A8A8'
     }
 }

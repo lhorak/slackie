@@ -1,0 +1,20 @@
+.userStatus {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: inset 0 0 0 2px #979797;
+  margin: 0px 5px 0 0;
+  display: inline-block;
+
+  &.online {
+    background-color: #7ED321;
+    box-shadow: none;
+  }
+
+  &.away {
+    position: relative;
+    background-color: #E4C100;
+    box-shadow: none;
+  }
+}

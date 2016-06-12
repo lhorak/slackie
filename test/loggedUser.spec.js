@@ -1,39 +1,39 @@
 import { expect } from 'chai';
 import { Map, List, fromJS } from 'immutable';
 import { createStore } from 'redux'
-import { DEFAULT_LOGGED_USER } from '../src/defaults'
-import loggedUser from '../src/reducers/loggedUser'
-import { STATUS_AWAY, STATUS_ONLINE, STATUS_OFFLINE } from '../src/userStatus'
+import loggedUser, { defaultUser } from '../src/reducers/loggedUser'
 import { SET_USER_STATUS } from '../src/ActionTypes'
-describe('loggedUser', () => {
-    it('creates default state', () => {
-        const state = loggedUser(undefined, {type: null});
 
-        expect(state).to.equal(DEFAULT_LOGGED_USER);
+
+describe('loggedUser reducer', () => {
+    it('creates default state', () => {
+        const store = createStore(loggedUser);
+
+        expect(store.getState()).to.equal(defaultUser);
     });
 
     const store = createStore(loggedUser);
 
     it('sets user state to online', () => {
-        store.dispatch({type: SET_USER_STATUS, status: STATUS_ONLINE});
+        store.dispatch({type: SET_USER_STATUS, status: 'online'});
 
         const currentStatus = store.getState().get('status');
-        expect(currentStatus).to.equal(STATUS_ONLINE);
+        expect(currentStatus).to.equal('online');
 
     });
 
     it('sets user state to offline', () => {
-        store.dispatch({type: SET_USER_STATUS, status: STATUS_OFFLINE});
+        store.dispatch({type: SET_USER_STATUS, status: 'offline'});
 
         const currentStatus = store.getState().get('status');
-        expect(currentStatus).to.equal(STATUS_OFFLINE);
+        expect(currentStatus).to.equal('offline');
     });
 
     it('sets user state to away', () => {
-        store.dispatch({type: SET_USER_STATUS, status: STATUS_AWAY});
+        store.dispatch({type: SET_USER_STATUS, status: 'away'});
 
         const currentStatus = store.getState().get('status');
-        expect(currentStatus).to.equal(STATUS_AWAY);
+        expect(currentStatus).to.equal('away');
 
     })
 });

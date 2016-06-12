@@ -32,10 +32,15 @@ class AddButton extends Component {
         this.setState({isModalOpened: false});
     };
 
+
     render() {
         return (
-            <button style={styles.base} onClick={this.openModal}>
-                <MaterialIcon name="add_circle_outline" size="1.2rem"/>
+            <div style={styles.base}>
+                <MaterialIcon
+                    style={{cursor: 'pointer'}}
+                    name="add_circle_outline"
+                    size="1.2rem"
+                    onClick={this.props.onClick}/>
 
                 <ReactCSSTransitionGroup
                     transitionName="fadeIn"
@@ -45,22 +50,26 @@ class AddButton extends Component {
                     transitionLeaveTimeout={100}
                 >
                     {
-                        this.state.isModalOpened &&
-                        <FullscreenModal onClose={this.closeModal}>
+                        this.props.isModalOpened &&
+                        <FullscreenModal onClose={this.props.onCloseModal}>
                             {this.props.children}
                         </FullscreenModal>
                     }
                 </ReactCSSTransitionGroup>
-            </button>
+            </div>
         );
     };
 }
 
 AddButton.propTypes    = {
     onOpenModal: PropTypes.func,
-    onCloseModal: PropTypes.func
+    onCloseModal: PropTypes.func,
+    onClick: PropTypes.func,
+    isModalOpened: PropTypes.bool.isRequired
 };
-AddButton.defaultProps = {};
+AddButton.defaultProps = {
+    isModalOpened: false
+};
 
 
 const iconSize = .6;

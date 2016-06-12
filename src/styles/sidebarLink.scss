@@ -5,6 +5,7 @@
   margin: 0 20px 0 0;
   transition: all 100ms ease-in;
   border-radius: 0 3px 3px 0;
+  position: relative;
 
   a {
     color: rgba(255, 255, 255, .7);
@@ -14,6 +15,15 @@
 
   &:hover {
     background-color: darken(#0E4250, 5%);
+    a {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  &.active {
+    transition: all 250ms ease-out;
+    background-color: #EE8123;
+
     a {
       color: rgba(255, 255, 255, 1);
     }
@@ -33,4 +43,40 @@
       }
     }
   }
+
+  &.direct {
+    &::before {
+      content: '@';
+      color: rgba(255, 255, 255, .4);
+      padding-right: .2rem;
+      transition: all 100ms ease-in;
+    }
+
+    &:hover {
+      &::before {
+        color: rgba(255, 255, 255, .8);
+      }
+    }
+  }
+
+  .sidebarLink__close {
+    position: absolute;
+    right: 10px;
+    top: 1px;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, .5);
+    display: none;
+    font-weight: 100;
+    opacity: 0;
+    transition: opacity 250ms ease-in;
+    cursor: pointer;
+  }
+
+  &:hover {
+    .sidebarLink__close {
+      display: inline-block;
+      opacity: 1;
+    }
+  }
 }
+

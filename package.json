@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "prod": "webpack -p",
-    "start": "webpack-dev-server --history-api-fallback --port 8080 --watch-poll",
+    "prod": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors --config webpack.config.production.js",
+    "start": "webpack-dev-server --history-api-fallback --port 8080",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch"
   },
@@ -20,6 +20,7 @@
     "immutable": "^3.8.1",
     "lodash": "^4.13.1",
     "moment": "^2.13.0",
+    "node-uuid": "^1.4.7",
     "radium": "^0.17.1",
     "react": "^15.1.0",
     "react-addons-css-transition-group": "^15.1.0",
@@ -30,6 +31,7 @@
     "react-fontawesome": "^1.1.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.4.1",
+    "react-textarea-autosize": "^4.0.2",
     "redux": "^3.5.2"
   },
   "devDependencies": {
